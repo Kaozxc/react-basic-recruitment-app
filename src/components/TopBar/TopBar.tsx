@@ -31,9 +31,14 @@ export const TopBar = () => {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth={false}>
         <Toolbar disableGutters>
-          <Typography
+          <Box
+            component="img"
+            src="https://i.imgur.com/cHrWogh.png"
+            sx={{ height: "100%", width: "150px" }}
+          />
+          {/* <Typography
             variant="h6"
             noWrap
             component="a"
@@ -68,8 +73,8 @@ export const TopBar = () => {
             }}
           >
             IMG ARENA
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          </Typography> */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
 
           </Box>
 
