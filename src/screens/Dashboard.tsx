@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { navigationRoutes } from "../navigationRoutes";
 import { DashboardItem, DashboardType } from "../types/dashboard.types";
 import { NoResults } from "../components/NoResults/NoResults";
+import { getDashboards } from "../service/dashboard.service";
 
 export const DashboardScreen = () => {
   const [items, setItems] = useState<DashboardType[]>([]);
@@ -20,13 +21,25 @@ export const DashboardScreen = () => {
     }
   };
 
+
   useEffect(() => {
-    // TODO: get data from dashboard.service
+    const fetchContent = async () => {
+      const result = await getDashboards();
+      setItems(result);
+    };
+    fetchContent();
+    console.log(items);
+
   }, []);
 
   if (!items || items.length === 0) {
     return <NoResults />;
   }
-
-  return <div>TODO: implement dashboard content according to designs</div>;
+  return <>{
+    items.forEach((item, i) => {
+      <div key={i}>
+        {item.title}
+      </div>
+    })
+  }</>
 };

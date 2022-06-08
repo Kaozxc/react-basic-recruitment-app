@@ -19,7 +19,7 @@ export const customOverridesLight: MsfpThemeOptions = {
   palette: {
     mode: "light",
     primary: {
-      main: "#FF4D00",
+      main: "#202020",
     },
     secondary: {
       main: "#2D2D2D",
@@ -31,7 +31,7 @@ export const customOverridesLight: MsfpThemeOptions = {
     },
   },
   typography: {
-    fontFamily: ["Roboto","Helvetica","Arial",'sans-serif'].join(',')
+    fontFamily: ["Roboto", "Helvetica", "Arial", 'sans-serif'].join(',')
   }
 };
 
@@ -56,7 +56,7 @@ export const customOverridesDark: MsfpThemeOptions = {
     },
   },
   typography: {
-    fontFamily: ["Roboto","Helvetica","Arial",'sans-serif'].join(',')
+    fontFamily: ["Roboto", "Helvetica", "Arial", 'sans-serif'].join(',')
   }
 };
 

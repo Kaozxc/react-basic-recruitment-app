@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './App.css'
 import { Grid, PaletteMode, ThemeProvider } from "@mui/material";
 import { TopBar } from "./components/TopBar/TopBar";
-import { LeftNavigation } from "./components/LeftNavigation/LeftNavigation";
+import LeftNavigation from "./components/LeftNavigation/LeftNavigation";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { darkTheme, lightTheme } from "./theme";
 import { Error404 } from "./screens/404";
