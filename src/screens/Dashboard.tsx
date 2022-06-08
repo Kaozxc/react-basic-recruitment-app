@@ -3,6 +3,7 @@ import { navigationRoutes } from "../navigationRoutes";
 import { DashboardItem, DashboardType } from "../types/dashboard.types";
 import { NoResults } from "../components/NoResults/NoResults";
 import { getDashboards } from "../service/dashboard.service";
+import Box from '@mui/material/Box';
 
 export const DashboardScreen = () => {
   const [items, setItems] = useState<DashboardType[]>([]);
@@ -25,16 +26,16 @@ export const DashboardScreen = () => {
   useEffect(() => {
     const fetchContent = async () => {
       const result = await getDashboards();
+      //console.log(result);
       setItems(result);
     };
     fetchContent();
-    console.log(items);
 
   }, []);
 
-  if (!items || items.length === 0) {
-    return <NoResults />;
-  }
+  // if (!items || items.length === 0) {
+  //   return <NoResults />;
+  // }
   return <>{
     items.forEach((item, i) => {
       <div key={i}>

@@ -40,6 +40,12 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import HomeIcon from '@mui/icons-material/Home';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
+import CorporateFareIcon from '@mui/icons-material/CorporateFare';
+import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 const drawerWidth = 290;
 
@@ -62,13 +68,28 @@ export default function LeftNavigation(props: Props) {
   const drawer = (
     <div>
       <Toolbar />
-      <List sx={{ paddingTop: '50px' }} >
-        {'Management'}
-        {['Dashboard', 'Sports', 'Competitions'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+      <List sx={{
+        paddingTop: '50px', marginLeft: '15px',
+        justifyContent: "center", display: 'flex', flexWrap: 'nowrap', flexDirection: "column"
+      }} >
+        <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'Management'}</Box>
+        {['Dashboard', 'Sports'].map((text, index) => (
+          <ListItem key={text} disablePadding disableGutters={true}>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {
+                  index % 2 === 0 ? <HomeIcon /> : <SportsSoccerIcon />
+                }
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        {['Competitions'].map((text, index) => (
+          <ListItem key={text} disablePadding disableGutters={true}>
+            <ListItemButton>
+              <ListItemIcon>
+                <EmojiEventsIcon />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -76,13 +97,16 @@ export default function LeftNavigation(props: Props) {
         ))}
       </List>
       <Divider />
-      <List>
-        {'Hello'}
+      <List sx={{
+        paddingTop: '10px', marginLeft: '15px',
+        justifyContent: "center", display: 'flex', flexWrap: 'nowrap', flexDirection: "column"
+      }} >
+        <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'Planning'}</Box>
         {['Scheduling', 'Organisations'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <FactCheckIcon /> : <CorporateFareIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -90,13 +114,16 @@ export default function LeftNavigation(props: Props) {
         ))}
       </List>
       <Divider />
-      <List>
-        {'People'}
+      <List sx={{
+        paddingTop: '10px', marginLeft: '15px',
+        justifyContent: "center", display: 'flex', flexWrap: 'nowrap', flexDirection: "column"
+      }} >
+        <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'People'}</Box>
         {['Users'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <SupervisedUserCircleIcon />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -114,7 +141,6 @@ export default function LeftNavigation(props: Props) {
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, zIndex: '-2' }}
-        aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
