@@ -8,6 +8,17 @@ type DashboardCardProps = {
   linkTo: string;
 };
 
+const divStyles = {
+  paddingLeft: '80px',
+  backgroundColor: '#202020',
+  color: '#e2e2e2'
+}
+
+const linkStyle = {
+  textDecoration: 'none',
+  color: '#ff6633',
+}
+
 // TODO: style to match designs
 export const DashboardCard: FC<DashboardCardProps> = ({
   title,
@@ -17,9 +28,9 @@ export const DashboardCard: FC<DashboardCardProps> = ({
   const theme = useTheme();
 
   return (
-    <Paper elevation={4}>
+    <Paper elevation={4} sx={{ margin: '100px' }}>
       <Stack>
-        <div>
+        <div style={divStyles}>
           <p>{title}</p>
         </div>
         <div style={{ padding: theme.spacing(1, 2) }}>
@@ -30,7 +41,7 @@ export const DashboardCard: FC<DashboardCardProps> = ({
           direction={"row"}
           justifyContent={"flex-end"}
         >
-          <Link to={linkTo}>More</Link>
+          <Link to={linkTo} style={linkStyle}>More</Link>
         </Stack>
       </Stack>
     </Paper>

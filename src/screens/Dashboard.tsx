@@ -4,9 +4,17 @@ import { DashboardItem, DashboardType } from "../types/dashboard.types";
 import { NoResults } from "../components/NoResults/NoResults";
 import { getDashboards } from "../service/dashboard.service";
 import Box from '@mui/material/Box';
+import { Container } from "@mui/system";
+import { Grid } from "@mui/material";
+import { DashboardCard } from "../components/Card/DashboardCard";
 
 export const DashboardScreen = () => {
   const [items, setItems] = useState<DashboardType[]>([]);
+
+  const fetchContent = async () => {
+    const result = await getDashboards();
+    setItems(Object.values(result));
+  };
 
   const getLinkTo = (id: DashboardItem) => {
     switch (id) {
@@ -24,23 +32,19 @@ export const DashboardScreen = () => {
 
 
   useEffect(() => {
-    const fetchContent = async () => {
-      const result = await getDashboards();
-      //console.log(result);
-      setItems(result);
-    };
     fetchContent();
-
   }, []);
 
-  // if (!items || items.length === 0) {
-  //   return <NoResults />;
-  // }
-  return <>{
-    items.forEach((item, i) => {
-      <div key={i}>
-        {item.title}
-      </div>
-    })
-  }</>
+  if (!items || items.length <= 5) {
+    return <NoResults />;
+  }
+
+  return (
+    <>
+      {items.map((item, i) => {
+        return <DashboardCard title={item.title} text={item.text} key={i} linkTo={getLinkTo(item.id)}></DashboardCard>
+
+      })}
+    </>
+  )
 };
