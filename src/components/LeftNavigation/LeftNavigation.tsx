@@ -46,6 +46,8 @@ import CorporateFareIcon from '@mui/icons-material/CorporateFare';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { Link, useLocation } from 'react-router-dom';
+import { navigationRoutes } from '../../navigationRoutes';
 
 const drawerWidth = 290;
 
@@ -57,43 +59,70 @@ interface Props {
   window?: () => Window;
 }
 
-export default function LeftNavigation(props: Props) {
+export function LeftNavigation(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const location = useLocation();
+
+  const activeRoute = (routeName: any) => {
+    if (routeName === 'Dashboard') routeName = '';
+    const check = '/' + routeName === location.pathname;
+    //return 0 > -1 ? true : false;
+    console.log('check', check)
+    console.log('routename', routeName)
+    console.log('location', location.pathname)
+    return check;
+  }
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const activeList = {
+    backgroundColor: '#ff3f00'
+  }
+
   const drawer = (
     <div>
       <Toolbar />
       <List sx={{
+        // selected and (selected + hover) states
+        '&& .Mui-selected, && .Mui-selected:hover': {
+          bgcolor: '#ffede6',
+          '&, & .MuiListItemIcon-root': {
+            color: '#ff3f00',
+          },
+        },
         paddingTop: '50px', marginLeft: '15px',
         justifyContent: "center", display: 'flex', flexWrap: 'nowrap', flexDirection: "column"
       }} >
         <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'Management'}</Box>
         {['Dashboard', 'Sports'].map((text, index) => (
-          <ListItem key={text} disablePadding disableGutters={true}>
-            <ListItemButton>
-              <ListItemIcon>
-                {
-                  index % 2 === 0 ? <HomeIcon /> : <SportsSoccerIcon />
-                }
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+          <Link to={text === 'Dashboard' ? '/' : text} style={{ textDecoration: 'none', color: 'black' }} key={index}>
+            <ListItem key={text} disablePadding disableGutters={true} selected={activeRoute(text)}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {
+                    index % 2 === 0 ? <HomeIcon /> : <SportsSoccerIcon />
+                  }
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
         {['Competitions'].map((text, index) => (
-          <ListItem key={text} disablePadding disableGutters={true}>
-            <ListItemButton>
-              <ListItemIcon>
-                <EmojiEventsIcon />
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+          <Link to={text} style={{ textDecoration: 'none', color: 'black' }} key={index}>
+            <ListItem key={text} disablePadding disableGutters={true} selected={activeRoute(text)} sx={{}}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <EmojiEventsIcon />
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
       <Divider />
@@ -103,14 +132,16 @@ export default function LeftNavigation(props: Props) {
       }} >
         <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'Planning'}</Box>
         {['Scheduling', 'Organisations'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <FactCheckIcon /> : <CorporateFareIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+          <Link to={text} style={{ textDecoration: 'none', color: 'black' }} key={index}>
+            <ListItem key={text} disablePadding selected={activeRoute(text)}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <FactCheckIcon /> : <CorporateFareIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
       <Divider />
@@ -120,14 +151,16 @@ export default function LeftNavigation(props: Props) {
       }} >
         <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'People'}</Box>
         {['Users'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <SupervisedUserCircleIcon />
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+          <Link to={text} style={{ textDecoration: 'none', color: 'black' }} key={index}>
+            <ListItem key={text} disablePadding selected={activeRoute(text)}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <SupervisedUserCircleIcon />
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>

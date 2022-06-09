@@ -40,11 +40,12 @@ export const DashboardScreen = () => {
   }
 
   return (
-    <>
+    <Grid container spacing={{ md: 2 }} columns={{ xs: 4 }}>
       {items.map((item, i) => {
-        return <DashboardCard title={item.title} text={item.text} key={i} linkTo={getLinkTo(item.id)}></DashboardCard>
-
+        return <Grid item xs={2} sm={4} md={4} key={i}>
+          {/* <DashboardCard title={item.title} text={item.text} key={i} linkTo={getLinkTo(item.id)}></DashboardCard> */}
+        </Grid>
       })}
-    </>
+    </Grid>
   )
 };

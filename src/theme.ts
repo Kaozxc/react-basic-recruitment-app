@@ -3,7 +3,7 @@ import { createTheme, Theme, ThemeOptions } from "@mui/material";
 export type MsfpTheme = Theme & {
   appBar: {
     main: string;
-  };
+  },
 };
 
 export type MsfpThemeOptions = ThemeOptions & {
