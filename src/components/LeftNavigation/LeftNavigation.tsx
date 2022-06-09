@@ -61,23 +61,15 @@ interface Props {
 
 export function LeftNavigation(props: Props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const location = useLocation();
 
   const activeRoute = (routeName: any) => {
     if (routeName === 'Dashboard') routeName = '';
     const check = '/' + routeName.toLowerCase() === location.pathname;
-    //return 0 > -1 ? true : false;
-    console.log('check', check)
-    console.log('routename', routeName)
-    console.log('location', location.pathname)
     return check;
   }
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
 
   const drawer = (
     <div style={{ width: '100%' }}>
