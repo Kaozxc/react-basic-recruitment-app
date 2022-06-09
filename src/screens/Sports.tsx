@@ -86,22 +86,6 @@ export const SportsScreen = () => {
     },
   ];
 
-  function createData(
-    name: string,
-    calories: number,
-    fat: number,
-    protein: any,
-  ) {
-    return { name, calories, fat, protein };
-  }
-
-  // const rows = [
-  //   createData('Frozen yoghurt', 159, 6.0, <VisibilityIcon onClick={() => { console.log('elo') }} />),
-  //   createData('Ice cream sandwich', 237, 9.0, <VisibilityIcon onClick={() => { console.log('elo') }} />),
-  //   createData('Eclair', 262, 16.0, <VisibilityIcon onClick={() => { console.log('elo') }} />),
-  //   createData('Cupcake', 305, 3.7, <VisibilityIcon onClick={() => { console.log('elo') }} />),
-  // ];
-
   // const rows = [
   //   { id: 'Soccer', location: 'Madrid', shortDescription: 'Lorem Ipsum', action: <VisibilityIcon /> },
   //   { id: 'Basketball', location: 'London', shortDescription: 'Lorem Ipsum', action: <VisibilityIcon /> },
