@@ -24,11 +24,11 @@ function App() {
       <BrowserRouter>
         <TopBar />
 
-        <Grid container>
-          <Grid item sx={{ width: 200 }}>
+        <Grid container  >
+          <Grid item sx={{ width: 290, }}>
             <LeftNavigation />
           </Grid>
-          <Grid item xs>
+          <Grid item xl >
             <Routes>
               {Object.values(navigationRoutes).map((route) => (
                 <Route key={route.path} path={route.path} element={route.element} />
@@ -38,7 +38,7 @@ function App() {
           </Grid>
         </Grid>
       </BrowserRouter>
-    </ThemeProvider>
+    </ThemeProvider >
   );
 }
 

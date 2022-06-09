@@ -27,7 +27,7 @@ export const customOverridesLight: MsfpThemeOptions = {
     },
     background: {
       default: "#F5F5F5",
-      paper: "#FFFFFF",
+      paper: "#",
     },
   },
   typography: {

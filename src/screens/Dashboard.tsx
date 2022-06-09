@@ -40,12 +40,12 @@ export const DashboardScreen = () => {
   }
 
   return (
-    <Grid container spacing={{ md: 2 }} columns={{ xs: 4 }}>
+    <Grid xs={12} item container rowSpacing={5} columnGap={1} columns={{ xs: 2 }} sx={{ paddingLeft: '10px', paddingTop: '50px' }}>
       {items.map((item, i) => {
-        return <Grid item xs={2} sm={4} md={4} key={i}>
-          {/* <DashboardCard title={item.title} text={item.text} key={i} linkTo={getLinkTo(item.id)}></DashboardCard> */}
+        return <Grid item xs={8} sm={8} md={8} key={i} sx={{ maxHeight: '100%', maxWidth: '760px', margin: '10px' }}>
+          <DashboardCard title={item.title} text={item.text} key={i} linkTo={getLinkTo(item.id)}></DashboardCard>
         </Grid>
       })}
-    </Grid>
+    </Grid >
   )
 };

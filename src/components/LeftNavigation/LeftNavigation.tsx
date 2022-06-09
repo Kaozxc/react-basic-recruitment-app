@@ -67,7 +67,7 @@ export function LeftNavigation(props: Props) {
 
   const activeRoute = (routeName: any) => {
     if (routeName === 'Dashboard') routeName = '';
-    const check = '/' + routeName === location.pathname;
+    const check = '/' + routeName.toLowerCase() === location.pathname;
     //return 0 > -1 ? true : false;
     console.log('check', check)
     console.log('routename', routeName)
@@ -79,16 +79,12 @@ export function LeftNavigation(props: Props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const activeList = {
-    backgroundColor: '#ff3f00'
-  }
-
   const drawer = (
-    <div>
+    <div style={{ width: '100%' }}>
       <Toolbar />
       <List sx={{
         // selected and (selected + hover) states
-        '&& .Mui-selected, && .Mui-selected:hover': {
+        '&& .Mui-selected': {
           bgcolor: '#ffede6',
           '&, & .MuiListItemIcon-root': {
             color: '#ff3f00',
@@ -99,7 +95,7 @@ export function LeftNavigation(props: Props) {
       }} >
         <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'Management'}</Box>
         {['Dashboard', 'Sports'].map((text, index) => (
-          <Link to={text === 'Dashboard' ? '/' : text} style={{ textDecoration: 'none', color: 'black' }} key={index}>
+          <Link to={text === 'Dashboard' ? '/' : text.toLowerCase()} style={{ textDecoration: 'none', color: 'black' }} key={index}>
             <ListItem key={text} disablePadding disableGutters={true} selected={activeRoute(text)}>
               <ListItemButton>
                 <ListItemIcon>
@@ -113,8 +109,8 @@ export function LeftNavigation(props: Props) {
           </Link>
         ))}
         {['Competitions'].map((text, index) => (
-          <Link to={text} style={{ textDecoration: 'none', color: 'black' }} key={index}>
-            <ListItem key={text} disablePadding disableGutters={true} selected={activeRoute(text)} sx={{}}>
+          <Link to={text.toLowerCase()} style={{ textDecoration: 'none', color: 'black' }} key={index}>
+            <ListItem key={text} disablePadding disableGutters={true} selected={activeRoute(text)}>
               <ListItemButton>
                 <ListItemIcon>
                   <EmojiEventsIcon />
@@ -132,7 +128,7 @@ export function LeftNavigation(props: Props) {
       }} >
         <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'Planning'}</Box>
         {['Scheduling', 'Organisations'].map((text, index) => (
-          <Link to={text} style={{ textDecoration: 'none', color: 'black' }} key={index}>
+          <Link to={text.toLowerCase()} style={{ textDecoration: 'none', color: 'black' }} key={index}>
             <ListItem key={text} disablePadding selected={activeRoute(text)}>
               <ListItemButton>
                 <ListItemIcon>
@@ -151,7 +147,7 @@ export function LeftNavigation(props: Props) {
       }} >
         <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'People'}</Box>
         {['Users'].map((text, index) => (
-          <Link to={text} style={{ textDecoration: 'none', color: 'black' }} key={index}>
+          <Link to={text.toLowerCase()} style={{ textDecoration: 'none', color: 'black' }} key={index}>
             <ListItem key={text} disablePadding selected={activeRoute(text)}>
               <ListItemButton>
                 <ListItemIcon>
@@ -173,10 +169,10 @@ export function LeftNavigation(props: Props) {
       <CssBaseline />
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, zIndex: '-2' }}
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer
+        {/* <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
@@ -190,24 +186,25 @@ export function LeftNavigation(props: Props) {
           }}
         >
           {drawer}
-        </Drawer>
+        </Drawer> */}
         <Drawer
-          variant="permanent"
+          variant='persistent'
+          anchor='left'
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, },
           }}
           open
         >
           {drawer}
         </Drawer>
       </Box>
-      {/* <Box
+      <Box
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-      </Box> */}
+      </Box>
     </Box>
   );
 }

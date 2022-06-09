@@ -30,7 +30,7 @@ export const TopBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" >
       <Container maxWidth={false}>
         <Toolbar disableGutters>
           <Box
@@ -38,42 +38,6 @@ export const TopBar = () => {
             src="https://i.imgur.com/cHrWogh.png"
             sx={{ height: "100%", width: "150px" }}
           />
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'main',
-              textDecoration: 'none',
-            }}
-          >
-            IMG ARENA
-          </Typography>
-
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            IMG ARENA
-          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
 
           </Box>
