@@ -37,9 +37,9 @@ export const DashboardScreen = () => {
   }
 
   return (
-    <Grid xs={12} item container rowSpacing={5} columnGap={1} columns={{ xs: 2 }} sx={{ paddingTop: '50px', paddingLeft: '10px' }}>
+    <Grid container spacing={2} columnGap={1} columns={{ xs: 2 }} sx={{ paddingTop: '80px', paddingLeft: '20px' }}>
       {items.map((item, i) => {
-        return <Grid item xs={8} sm={8} md={8} key={i} sx={{ maxWidth: '760px', margin: '10px' }}>
+        return <Grid item xs={8} sm={8} md={8} key={i} sx={{ maxWidth: '760px', margin: '10px', display: "grid", gridTemplateColumns: "repeat(1, 5fr)" }}>
           <DashboardCard title={item.title} text={item.text} key={i} linkTo={getLinkTo(item.id)}></DashboardCard>
         </Grid>
       })}

@@ -35,9 +35,8 @@ export function LeftNavigation() {
 
   const drawer = (
     <div style={{ width: '100%' }}>
-      <Toolbar />
       <List sx={menuStyle}>
-        <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'Management'}</Box>
+        <Box sx={{ marginTop: '50px', marginLeft: '20px', color: '#a0a0a0' }}>{'Management'}</Box>
         {/* // Dashboard */}
         <NavigationItem to={'/'} icon={<HomeIcon />} label={'Dashboard'} />
         {/* Sports and Competitions */}
@@ -63,7 +62,7 @@ export function LeftNavigation() {
   );
 
   return (
-    <Box>
+    <Box sx={{ width: '500px', height: '100%' }}>
       <CssBaseline />
       <Box
         component="nav"

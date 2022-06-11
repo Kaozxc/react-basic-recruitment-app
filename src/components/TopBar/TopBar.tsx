@@ -14,7 +14,7 @@ import { MuiSwitchStyle } from '../../theme';
 export const TopBar = (toggleTheme: any) => {
 
   return (
-    <AppBar position="static" sx={{ zIndex: '1600' }}>
+    <AppBar position="static" sx={{ zIndex: '1600', height: '60px' }}>
       <Container maxWidth={false}>
         <Toolbar  >
           <img
