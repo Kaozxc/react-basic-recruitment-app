@@ -11,19 +11,18 @@ import { navigationRoutes } from "./navigationRoutes";
 function App() {
   const [theme, setTheme] = useState(lightTheme);
 
-  const toggleTheme = (mode: PaletteMode) => {
-    if (mode === "light") {
-      setTheme(lightTheme);
+  const toggleTheme = (value: boolean) => {
+    if (value === true) {
+      setTheme(lightTheme)
     } else {
-      setTheme(darkTheme);
+      setTheme(darkTheme)
     }
-  };
-
+  }
 
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <TopBar />
+        <TopBar toggleTheme={toggleTheme} />
         <Grid container sx={{ position: 'absolute' }} >
           <Grid item sx={{ height: ' 95vh', width: 290, boxShadow: '3' }}>
             <LeftNavigation />

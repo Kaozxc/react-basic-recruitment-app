@@ -11,7 +11,7 @@ import { Switch } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import { MuiSwitchStyle } from '../../theme';
 
-export const TopBar = () => {
+export const TopBar = (toggleTheme: any) => {
 
   return (
     <AppBar position="static" sx={{ zIndex: '1600' }}>
@@ -28,7 +28,7 @@ export const TopBar = () => {
             <Tooltip title="Toggle">
               <IconButton sx={{ p: 0, color: 'white' }}>
                 <ThemeProvider theme={MuiSwitchStyle}>
-                  <Switch />
+                  <Switch onChange={function (event) { event?.target.checked === true ? toggleTheme.toggleTheme() : toggleTheme.toggleTheme(true) }} />
                 </ThemeProvider>
                 <Brightness5RoundedIcon sx={{ width: '20px', height: '20px' }} />
               </IconButton>

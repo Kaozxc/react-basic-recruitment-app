@@ -4,10 +4,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import HomeIcon from '@mui/icons-material/Home';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
@@ -15,7 +11,6 @@ import CorporateFareIcon from '@mui/icons-material/CorporateFare';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import { Link, useLocation } from 'react-router-dom';
 import { NavigationItem } from './NavigationItem';
 
 const drawerWidth = 290;
@@ -28,6 +23,10 @@ export function LeftNavigation() {
       '&, & .MuiListItemIcon-root': {
         color: '#ff3f00',
       },
+      '& .MuiListItemText-primary': {
+        color: 'black',
+        fontWeight: '500',
+      }
     },
     paddingTop: '10px', marginLeft: '15px',
     justifyContent: "center", display: 'flex', flexWrap: 'nowrap', flexDirection: "column"
