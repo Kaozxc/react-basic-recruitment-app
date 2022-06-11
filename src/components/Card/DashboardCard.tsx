@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Paper, Stack, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-import { fontSize } from "@mui/system";
 
 type DashboardCardProps = {
   title: string;
@@ -27,12 +26,10 @@ const textStyles = {
 const linkStyle = {
   textDecoration: 'none',
   color: '#ff6633',
-  // Need to change that
-  fontWeight: 'bold',
+  fontWeight: 600,
   letterSpacing: '2px',
 }
 
-// TODO: style to match designs
 export const DashboardCard: FC<DashboardCardProps> = ({
   title,
   text,
@@ -41,7 +38,7 @@ export const DashboardCard: FC<DashboardCardProps> = ({
   const theme = useTheme();
 
   return (
-    <Paper elevation={4} sx={{ width: '100%', minHeight: '240px' }}>
+    <Paper elevation={4} sx={{ width: '100%' }}>
       <Stack>
         <div style={divStyles}>
           <p style={titleStyles}>{title}</p>

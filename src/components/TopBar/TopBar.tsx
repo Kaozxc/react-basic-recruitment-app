@@ -3,69 +3,44 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SettingsIcon from '@mui/icons-material/Settings';
-import ToggleOffIcon from '@mui/icons-material/ToggleOff';
+import Brightness5RoundedIcon from '@mui/icons-material/Brightness5Rounded';
+import { Switch } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
+import { MuiSwitchStyle } from '../../theme';
 
 export const TopBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
-    <AppBar position="static" >
+    <AppBar position="static" sx={{ zIndex: '1600' }}>
       <Container maxWidth={false}>
-        <Toolbar disableGutters>
-          <Box
-            component="img"
+        <Toolbar  >
+          <img
             src="https://i.imgur.com/cHrWogh.png"
-            sx={{ height: "100%", width: "150px" }}
+            alt='LOGO'
+            style={{ height: '50%', width: '180px', marginLeft: '-20px' }}
           />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
-
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, display: 'flex' }}>
             <Tooltip title="Toggle">
               <IconButton sx={{ p: 0, color: 'white' }}>
-                <ToggleOffIcon sx={{ width: '40px', height: '40px' }} />
+                <ThemeProvider theme={MuiSwitchStyle}>
+                  <Switch />
+                </ThemeProvider>
+                <Brightness5RoundedIcon sx={{ width: '20px', height: '20px' }} />
               </IconButton>
-
             </Tooltip>
-            <Tooltip title="Settings">
-              <IconButton sx={{ p: 0, color: 'white' }}>
-                <SettingsIcon sx={{ width: '40px', height: '40px' }} />
+            <Tooltip title="Avatar" sx={{ height: '100%' }}>
+              <IconButton sx={{ p: 0, color: 'white', paddingLeft: '10px' }}>
+                <AccountCircleIcon sx={{ width: '30px', height: '30px' }} />
               </IconButton>
-
             </Tooltip>
-
-            <Tooltip title="Avatar">
-              <IconButton sx={{ p: 0, color: 'white', paddingLeft: '20px' }}>
-                <AccountCircleIcon sx={{ width: '40px', height: '40px' }} />
-              </IconButton>
-
-            </Tooltip>
-
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </AppBar >
   );
 };

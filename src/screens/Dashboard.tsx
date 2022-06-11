@@ -3,8 +3,6 @@ import { navigationRoutes } from "../navigationRoutes";
 import { DashboardItem, DashboardType } from "../types/dashboard.types";
 import { NoResults } from "../components/NoResults/NoResults";
 import { getDashboards } from "../service/dashboard.service";
-import Box from '@mui/material/Box';
-import { Container } from "@mui/system";
 import { Grid } from "@mui/material";
 import { DashboardCard } from "../components/Card/DashboardCard";
 
@@ -30,7 +28,6 @@ export const DashboardScreen = () => {
     }
   };
 
-
   useEffect(() => {
     fetchContent();
   }, []);
@@ -40,9 +37,9 @@ export const DashboardScreen = () => {
   }
 
   return (
-    <Grid xs={12} item container rowSpacing={5} columnGap={1} columns={{ xs: 2 }} sx={{ paddingLeft: '10px', paddingTop: '50px' }}>
+    <Grid xs={12} item container rowSpacing={5} columnGap={1} columns={{ xs: 2 }} sx={{ paddingTop: '50px', paddingLeft: '10px' }}>
       {items.map((item, i) => {
-        return <Grid item xs={8} sm={8} md={8} key={i} sx={{ maxHeight: '100%', maxWidth: '760px', margin: '10px' }}>
+        return <Grid item xs={8} sm={8} md={8} key={i} sx={{ maxWidth: '760px', margin: '10px' }}>
           <DashboardCard title={item.title} text={item.text} key={i} linkTo={getLinkTo(item.id)}></DashboardCard>
         </Grid>
       })}

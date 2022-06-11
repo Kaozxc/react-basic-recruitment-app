@@ -10,7 +10,25 @@ export type MsfpThemeOptions = ThemeOptions & {
   appBar?: {
     main?: string;
   };
+  MuiSwitch?: {
+    main?: string,
+  }
 };
+
+export const MuiSwitchStyle = createTheme({
+  components: {
+    MuiSwitch: {
+      styleOverrides: {
+        track: {
+          backgroundColor: 'white'
+        },
+        thumb: {
+          backgroundColor: 'white'
+        }
+      },
+    },
+  }
+});
 
 export const customOverridesLight: MsfpThemeOptions = {
   appBar: {
@@ -27,7 +45,7 @@ export const customOverridesLight: MsfpThemeOptions = {
     },
     background: {
       default: "#F5F5F5",
-      paper: "#",
+      paper: "#FFFFFF",
     },
   },
   typography: {

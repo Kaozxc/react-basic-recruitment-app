@@ -19,13 +19,13 @@ function App() {
     }
   };
 
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <TopBar />
-
-        <Grid container  >
-          <Grid item sx={{ width: 290, }}>
+        <Grid container sx={{ position: 'absolute' }} >
+          <Grid item sx={{ height: ' 95vh', width: 290, boxShadow: '3' }}>
             <LeftNavigation />
           </Grid>
           <Grid item xl >
