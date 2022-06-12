@@ -1,4 +1,4 @@
-import { createTheme, Theme, ThemeOptions } from "@mui/material";
+import { createTheme, Theme, ThemeOptions } from '@mui/material';
 
 export type MsfpTheme = Theme & {
   appBar: {
@@ -32,49 +32,49 @@ export const MuiSwitchStyle = createTheme({
 
 export const customOverridesLight: MsfpThemeOptions = {
   appBar: {
-    main: "#272727",
+    main: '#272727',
   },
   palette: {
-    mode: "light",
+    mode: 'light',
     primary: {
-      main: "#202020",
+      main: '#202020',
     },
     secondary: {
-      main: "#2D2D2D",
-      contrastText: "#fff",
+      main: '#2D2D2D',
+      contrastText: '#fff',
     },
     background: {
-      default: "#F5F5F5",
-      paper: "#FFFFFF",
+      default: '#F5F5F5',
+      paper: '#FFFFFF',
     },
   },
   typography: {
-    fontFamily: ["Roboto", "Helvetica", "Arial", 'sans-serif'].join(',')
+    fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(',')
   }
 };
 
 export const customOverridesDark: MsfpThemeOptions = {
   appBar: {
-    main: "#272727",
+    main: '#272727',
   },
   palette: {
-    mode: "dark",
+    mode: 'dark',
     primary: {
-      main: "#FF4D00",
+      main: '#FF4D00',
     },
     secondary: {
-      main: "#757575",
+      main: '#757575',
     },
     text: {
-      primary: "#F5F5F5",
+      primary: '#F5F5F5',
     },
     background: {
-      default: "#202020",
-      paper: "#303030",
+      default: '#202020',
+      paper: '#303030',
     },
   },
   typography: {
-    fontFamily: ["Roboto", "Helvetica", "Arial", 'sans-serif'].join(',')
+    fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(',')
   }
 };
 

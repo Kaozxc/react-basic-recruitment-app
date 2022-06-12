@@ -1,7 +1,7 @@
-import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import { SvgIconComponent } from "@mui/icons-material";
-import { Link, useLocation } from "react-router-dom";
-import { FC, ReactElement } from "react";
+import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { SvgIconComponent } from '@mui/icons-material';
+import { Link, useLocation } from 'react-router-dom';
+import { FC, ReactElement } from 'react';
 
 type NavigationItemProp = {
   to: string;

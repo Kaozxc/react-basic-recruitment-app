@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { Paper, Stack, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { FC } from 'react';
+import { Paper, Stack, useTheme } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 type DashboardCardProps = {
   title: string;
@@ -48,8 +48,8 @@ export const DashboardCard: FC<DashboardCardProps> = ({
         </div>
         <Stack
           style={{ padding: theme.spacing(1, 2) }}
-          direction={"row"}
-          justifyContent={"flex-end"}
+          direction={'row'}
+          justifyContent={'flex-end'}
         >
           <Link to={linkTo} style={linkStyle}>MORE INFO</Link>
         </Stack>

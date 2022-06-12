@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react";
-import { TableColumn } from "./Table";
-import { TableCell, TableRow as MuiTableRow } from "@mui/material";
-import { ModelWithId } from "../../types/table.types";
+import React, { ReactElement } from 'react';
+import { TableColumn } from './Table';
+import { TableCell, TableRow as MuiTableRow } from '@mui/material';
+import { ModelWithId } from '../../types/table.types';
 
 type TableRowProps<Model> = {
   item: Model;
@@ -25,7 +25,7 @@ export const TableRow = <Model extends ModelWithId>({
   return (
     <MuiTableRow>
       {columns.map((column, index) => (
-        <TableCell sx={{ textAlign: column.textAlign || "left" }} key={index}>
+        <TableCell sx={{ textAlign: column.textAlign || 'left' }} key={index}>
           {getItemContent(column)}
         </TableCell>
       ))}

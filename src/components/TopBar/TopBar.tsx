@@ -14,18 +14,18 @@ import { MuiSwitchStyle } from '../../theme';
 export const TopBar = (toggleTheme: any) => {
 
   return (
-    <AppBar position="static" sx={{ zIndex: '1600', height: '60px' }}>
+    <AppBar position='static' sx={{ zIndex: '1600', height: '60px' }}>
       <Container maxWidth={false}>
         <Toolbar  >
           <img
-            src="https://i.imgur.com/cHrWogh.png"
+            src='https://i.imgur.com/cHrWogh.png'
             alt='LOGO'
             style={{ height: '50%', width: '180px', marginLeft: '-20px' }}
           />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
           </Box>
           <Box sx={{ flexGrow: 0, display: 'flex' }}>
-            <Tooltip title="Toggle">
+            <Tooltip title='Toggle'>
               <IconButton sx={{ p: 0, color: 'white' }}>
                 <ThemeProvider theme={MuiSwitchStyle}>
                   <Switch onChange={function (event) { event?.target.checked === true ? toggleTheme.toggleTheme() : toggleTheme.toggleTheme(true) }} />
@@ -33,7 +33,7 @@ export const TopBar = (toggleTheme: any) => {
                 <Brightness5RoundedIcon sx={{ width: '20px', height: '20px' }} />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Avatar" sx={{ height: '100%' }}>
+            <Tooltip title='Avatar' sx={{ height: '100%' }}>
               <IconButton sx={{ p: 0, color: 'white', paddingLeft: '10px' }}>
                 <AccountCircleIcon sx={{ width: '30px', height: '30px' }} />
               </IconButton>

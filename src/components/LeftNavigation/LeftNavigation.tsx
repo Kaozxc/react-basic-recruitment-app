@@ -29,14 +29,18 @@ export function LeftNavigation() {
       }
     },
     paddingTop: '10px', marginLeft: '15px',
-    justifyContent: "center", display: 'flex', flexWrap: 'nowrap', flexDirection: "column"
+    justifyContent: 'center', display: 'flex', flexWrap: 'nowrap', flexDirection: 'column'
+  }
+
+  const menuHeaderStyle = {
+    marginLeft: '20px', color: '#a0a0a0'
   }
 
 
   const drawer = (
     <div style={{ width: '100%' }}>
       <List sx={menuStyle}>
-        <Box sx={{ marginTop: '50px', marginLeft: '20px', color: '#a0a0a0' }}>{'Management'}</Box>
+        <Box style={menuHeaderStyle} sx={{ marginTop: '50px' }}>{'Management'}</Box>
         {/* // Dashboard */}
         <NavigationItem to={'/'} icon={<HomeIcon />} label={'Dashboard'} />
         {/* Sports and Competitions */}
@@ -46,7 +50,7 @@ export function LeftNavigation() {
       </List>
       <Divider />
       <List sx={menuStyle} >
-        <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'Planning'}</Box>
+        <Box style={menuHeaderStyle}>{'Planning'}</Box>
         {/* Scheduling and Organisations */}
         {['Scheduling', 'Organisations'].map((text, index) => (
           <NavigationItem to={'/' + text.toLowerCase()} icon={text === 'Scheduling' ? <FactCheckIcon /> : <CorporateFareIcon />} label={text} key={index} />
@@ -54,7 +58,7 @@ export function LeftNavigation() {
       </List>
       <Divider />
       <List sx={menuStyle} >
-        <Box sx={{ marginLeft: '20px', color: '#a0a0a0' }}>{'People'}</Box>
+        <Box style={menuHeaderStyle}>{'People'}</Box>
         {/* Users */}
         <NavigationItem to={'/users'} icon={<SupervisedUserCircleIcon />} label={'Users'} />
       </List>
@@ -65,7 +69,7 @@ export function LeftNavigation() {
     <Box sx={{ width: '500px', height: '100%' }}>
       <CssBaseline />
       <Box
-        component="nav"
+        component='nav'
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
       >
         <Drawer
